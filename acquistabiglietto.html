@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>ACQUISTA BIGLIETTO</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="home_Page.html">Museo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+               
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="opereArte.html">Opere d'Arte</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="saleEspositive.html">Sale Espositive</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="negozio_museo.html">Negozio</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        <button class="uiverse d-flex">
+          <div class="wrapper">
+              <span><a href="acquistabiglietto.html">Acquista Biglietto</a></span>
+              <div class="circle circle-12"></div>
+              <div class="circle circle-11"></div>
+              <div class="circle circle-10"></div>
+              <div class="circle circle-9"></div>
+              <div class="circle circle-8"></div>
+              <div class="circle circle-7"></div>
+              <div class="circle circle-6"></div>
+              <div class="circle circle-5"></div>
+              <div class="circle circle-4"></div>
+              <div class="circle circle-3"></div>
+              <div class="circle circle-2"></div>
+              <div class="circle circle-1"></div>
+          </div>
+      </button>
+      </nav>
+
+    <h1 id="ora"></h1>
+    <div class="container mt-4">
+        <h1>ACQUISTA BIGLIETTO</h1>
+        <form>
+            <div class=" form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" required />
+            </div>
+            <div class=" form-group">
+                <label for="cognome">Cognome:</label>
+                <input type="text" class="form-control" id="cognome" required />
+            </div>
+            <div class=" form-group">
+                <label for="numero">Numero di telefono:</label>
+                <input type="number" class="form-control" id="numero" required />
+            </div>
+            <div class=" form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="form-group">
+                <label for="motivazione">Quantita:</label>
+                <input type="number" class="form-control" id="motivazione" required />
+            </div>
+            <br />
+            <div class=" form-group">
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required />
+
+                <label for="ora">Ora :</label>
+                <input type="time" id="ora" name="ora" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="commercialista">Visita Guidata</label>
+                <select class="form-control" id="commercialista">
+                    <option>Si</option>
+                    <option>No</option>
+                   
+                </select>
+            </div>
+            <br />
+            <button type="button" class="btn btn-primary" onclick="aggiungiDati()">Aggiungi Dati </button>
+        </form>
+        <hr />
+        <h1 id="ora"></h1>
+
+        <h2>Dati inseriti </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Numero</th>
+                    <th>Email</th>
+                    <th>Quantita</th>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Visita Guidata</th>
+
+                </tr>
+            </thead>
+            <tbody id="tabella">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        var tutto = ["data", "ora"];
+        function popolaElenco() {
+            tabella = document.getElementById("tabella");
+            for (var i = 0; i < tutto.length; i++) {
+                var th = document.createElement("th");
+                th.innerHTML = tutto[i];
+                tabella.appendChild(th);
+            }
+        }
+
+
+        function aggiungiDati() {
+
+            var nome = document.getElementById("nome").value;
+            var cognome = document.getElementById("cognome").value;
+            var numero = document.getElementById("numero").value;
+            var email = document.getElementById("email").value;
+            var motivazione = document.getElementById("motivazione").value;
+            var data = document.getElementById("data").value;
+            var ora = document.getElementById("ora").value;
+            var commercialista = document.getElementById("commercialista").value;
+
+            if (nome === "" || cognome === "" || numero === "" || email === "" || motivazione === "" || data === "" || ora === "" || commercialista === "") {
+                alert("inserisci tutti i campi");
+                return 0; //pop up
+            }
+
+
+
+            var riga = document.createElement("tr");
+
+            function popolaElenco() {
+                tabella = document.getElementById("tabella")
+            }
+
+
+
+
+            //creazione colonne
+            var colonnaNome = document.createElement("td")
+            var colonnaCognome = document.createElement("td");
+            var colonnaNumero = document.createElement("td");
+            var colonnaEmail = document.createElement("td");
+            var ColonnaMotivazione = document.createElement("td");
+            var colonnaData = document.createElement("td");
+            var colonnaOra = document.createElement("td");
+            var colonnaCommercialista = document.createElement("td");
+
+
+            colonnaNome.innerText = nome;
+            colonnaCognome.innerText = cognome;
+            colonnaNumero.innerText = numero;
+            colonnaEmail.innerText = email;
+            ColonnaMotivazione.innerText = motivazione;
+            colonnaData.innerText = data;
+            colonnaOra.innerText = ora;
+            colonnaCommercialista.innerText = commercialista;
+
+            riga.appendChild(colonnaNome);
+            riga.appendChild(colonnaCognome);
+            riga.appendChild(colonnaNumero);
+            riga.appendChild(colonnaEmail);
+            riga.appendChild(ColonnaMotivazione);
+            riga.appendChild(colonnaData);
+            riga.appendChild(colonnaOra);
+            riga.appendChild(colonnaCommercialista);
+
+            var tabella = document.getElementById("tabella");
+            tabella.appendChild(riga);
+
+            // per ripulire la riga
+            document.getElementById("nome").value = "";
+            document.getElementById("cognome").value = "";
+            document.getElementById("numero").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("motivazione").value = "";
+            document.getElementById("data").value = "";
+            document.getElementById("ora").value = "";
+            document.getElementById("commercialista").value = "";
+
+        }
+
+
+
+    </script>
+    <script src="orologio.js"></script>
+
+    <footer>
+        <div class="footer">
+          <div class="row">
+            <ul>
+              <li><a href="contatti_museo.html">Contattaci</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="developers.html">Contatta i developers</a></li>
+              <br>
+              <li><a href="#">Copyright Team1</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>      
+
+</body>
+</html>
